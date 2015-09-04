@@ -27,7 +27,7 @@ public class Shop implements Tomer {
         try {
             getProductById(code).remove(qty);
         } catch (NullPointerException e) {
-            print("Item not found");
+            println("Item not found");
         }
     }
 
@@ -35,7 +35,7 @@ public class Shop implements Tomer {
         try {
             return getProductById(code).getQuantity() >= qty;
         } catch (NullPointerException e) {
-            print("Item with that id not found");
+            println("Item with that id not found");
         }
         return false;
     }

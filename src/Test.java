@@ -26,16 +26,16 @@ public class Test implements Tomer {
     private static void main(Shop shop, UserInput userInput) {
         new Test().println("What Item Do You Want To Remove");
         String input1 = userInput.getUserInput();
-        new Test().println("You chose " + shop.getProductById(Integer.parseInt(input1)).getName());
         new Test().println("How much of the item would you want to remove");
         String input2 = userInput.getUserInput();
         if (shop.checkProduct(Integer.parseInt(input1), Integer.parseInt(input2))) {
+            new Test().println("You chose to remove" + input2 + " From " + shop.getProductById(Integer.parseInt(input1)).getName());
             new Test().println("Removing...");
             shop.removeQty(Integer.parseInt(input1), Integer.parseInt(input2));
             new Test().println(shop.getProductById(Integer.parseInt(input1)).getName() + " now has " + shop.getProductById(Integer.parseInt(input1)).getQuantity());
             shop.updateQuantity();
         } else {
-            new Test().println("Error removing, Not enough");
+            new Test().println("Error removing");
         }
     }
 }
