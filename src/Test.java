@@ -1,6 +1,8 @@
 /**
  * Created by tomer on 9/4/15.
+ * This Program uses a custom library I created called JavaTomer8 including simple print/println , random functions and simple userinput class
  */
+
 public class Test implements Tomer {
     public static void main(String[] arguments) {
 
