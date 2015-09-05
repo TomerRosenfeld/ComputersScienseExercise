@@ -2,14 +2,14 @@
  * Created by tomer on 9/4/15.
  */
 public class Product {
-    int code,quantity;
-    String name;
-    Date d1;
+    private int code, quantity;
+    private String name;
+    private Date d1;
 
-    public Product(String name,int code,int quantity,Date d1){
+    public Product(String name, int code, int quantity, Date d1) {
         this.quantity = quantity;
         this.d1 = d1;
-        this.code  = code;
+        this.code = code;
         this.name = name;
     }
 
@@ -17,7 +17,7 @@ public class Product {
         return code;
     }
 
-    protected void remove(int quantity){
+    protected void remove(int quantity) {
         this.quantity -= quantity;
     }
 

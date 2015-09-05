@@ -5,11 +5,20 @@ import java.util.ArrayList;
  */
 public class Shop implements Tomer {
 
-    ArrayList<Product> products;
-    int totalQuant = 0;
+    private ArrayList<Product> products;
+
+    private int totalQuant = 0;
 
     public Shop() {
         products = new ArrayList<>();
+    }
+
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
+
+    public int getTotalQuant() {
+        return totalQuant;
     }
 
     protected void createProduct(int code, int quantity, String name, Date d1) {
@@ -18,7 +27,7 @@ public class Shop implements Tomer {
 
     protected void updateQuantity() {
         totalQuant = 0;
-        for (Product product : products){
+        for (Product product : products) {
             totalQuant += product.getQuantity();
         }
     }
@@ -35,7 +44,7 @@ public class Shop implements Tomer {
         try {
             return getProductById(code).getQuantity() >= qty;
         } catch (NullPointerException e) {
-            println("Item with that id not found");
+            println("Item not found");
         }
         return false;
     }
@@ -52,6 +61,7 @@ public class Shop implements Tomer {
     void stock(Date todaysDate) {
         for (Product product : products) {
             if (Date.getDatesDifference(product.getD1(), todaysDate) < 10) {
+                println("Clearing " + product.getName() + " Because it will go bad in: " + Date.getDatesDifference(product.getD1(), todaysDate) + " Days");
                 product.setQuantity(0);
             }
         }
